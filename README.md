@@ -1,14 +1,36 @@
 #  Quantlab Stock Stream Project
 
-## Objects
-### Abstract Class (Interface) StockParser
+To run executable
+
+    cd cmake-build-debug
+    cmake --build .
+    ./QuantlabStocks
+
+To view results in output.csv
+
+    cd ../data
+Results in "output.csv"
+
+### Pseudocode Strategy
+#### Main()
+* create ordered_map<char[3], StockParser*> stocksMap
+    * used to map a symbol to Stock object in O(1) time
+
+* TradesInputter('input.csv')
+* TradesInputter.readTrades
+
+* StocksOutputter
+* StocksOutputter.writeStocks()
+
+### Classes
+#### Abstract Class (Interface) StockParser
 Doing this to follow the Dependency Inversion Principle because TradesInputter and StocksOutputter (high-level class) will rely on a map with Stocks.
 
   * Virtual Methods
       * parseTrade(line)
       * toString()
 
-### Class Stock implements StockParser
+#### Class Stock implements StockParser
   * Attributes:
       * symbol (string)
           * 3 character unique identifier for a financial instrument (Stock, future etc.)
@@ -39,7 +61,7 @@ Doing this to follow the Dependency Inversion Principle because TradesInputter a
       * toString()
           * return <symbol>,<MaxTimeGap>,<Volume>,<weightedAveragePrice()>,<MaxPrice>
 
-### Class TradesInputter
+#### Class TradesInputter
 * Attributes:
     * string inputFileName
     * ifstream inputFile
@@ -56,7 +78,7 @@ Doing this to follow the Dependency Inversion Principle because TradesInputter a
             * Stock.addTrade(line)
         * close ofstream
 
-### Class StocksOutputter
+#### Class StocksOutputter
 * Attributes:
     * string outputFileName = "output.csv"
     * ofstream outputFile
@@ -68,14 +90,3 @@ Doing this to follow the Dependency Inversion Principle because TradesInputter a
         * for stock in stocksMap
             * write stock.toString()
         * close ofstream
-
-## Strategy
-* main
-    * ordered_map<char[3], StockParser*> stocksMap
-        * used to map a symbol to Stock object in O(1) time
-
-    * TradesInputter('input.csv')
-    * TradesInputter.readTrades
-
-    * StocksOutputter
-    * StocksOutputter.writeStocks()

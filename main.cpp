@@ -13,5 +13,9 @@ int main() {
 
     StocksOutputter stockOutputter = StocksOutputter("../data/output.csv");
     stockOutputter.writeStocks(stockMap);
+
+    cout<<"Success"<<endl;
+    cout<<"Results written to data/output.csv"<<endl;
+
     return 0;
 }
