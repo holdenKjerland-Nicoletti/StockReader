@@ -13,6 +13,18 @@ To view results in output.csv
     cd ../data
 Results in "output.csv"
 
+### Project Layout
+
+* libs/
+  * Class header and cpp files
+* tests/
+  * Catch2 tests for each class and main
+* data/
+  * input.csv
+  * output.csv
+* main.cpp
+  * main function for QuantlabStocks executable
+
 ### Pseudocode Strategy
 #### Main()
 * create ordered_map<char[3], StockParser*> stocksMap
