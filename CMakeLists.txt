@@ -10,7 +10,7 @@ add_subdirectory(dependencies)
 enable_testing()
 add_subdirectory(tests)
 
-set(PROJ_SOURCES libs/TradesInputter.cpp libs/TradesInputter.h libs/Stock.cpp libs/Stock.h)
+set(PROJ_SOURCES libs/TradesInputter.cpp libs/TradesInputter.h libs/Stock.cpp libs/Stock.h libs/StocksOutputter.cpp libs/StocksOutputter.h)
 add_library(StoreLib ${PROJ_SOURCES})
 target_include_directories(StoreLib
         PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
