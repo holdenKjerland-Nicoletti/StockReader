@@ -2,7 +2,9 @@
 
 To run executable
 
-    cd cmake-build-debug
+    mkdir cmake_build
+    cd cmake_build
+    cmake ../
     cmake --build .
     ./QuantlabStocks
 
