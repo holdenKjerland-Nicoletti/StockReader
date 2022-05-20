@@ -90,3 +90,10 @@ Doing this to follow the Dependency Inversion Principle because TradesInputter a
         * for stock in stocksMap
             * write stock.toString()
         * close ofstream
+
+### Resources
+* TDD: 
+  * https://www.youtube.com/watch?v=N2gTxeIHMP0&ab_channel=CppCon
+  * https://www.youtube.com/watch?v=w2CzYK5ZJys&ab_channel=JetBrainsTV
+* SOLID strategies:
+  * https://www.digitalocean.com/community/conceptual_articles/s-o-l-i-d-the-first-five-principles-of-object-oriented-design
