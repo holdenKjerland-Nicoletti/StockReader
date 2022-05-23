@@ -13,12 +13,10 @@
 #include "Stock.h"
 
 class StocksOutputter {
-//    std::string outputFileName = "data/output.csv";
-//    std::ofstream outputFile;
-
-public:
     std::string outputFileName = "data/output.csv";
     std::ofstream outputFile;
+
+public:
 
     StocksOutputter();
     StocksOutputter(const std::string);

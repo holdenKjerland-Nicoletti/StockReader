@@ -11,6 +11,7 @@
 #include <map>
 
 #include "Stock.h"
+#include "StockOpt.h"
 
 #define SYMBOL_SIZE 3
 
@@ -21,6 +22,7 @@ class TradesInputter {
 public:
     TradesInputter(const std::string);
     void readTrades(std::map<std::string, std::shared_ptr<StockParser>>&);
+    void readTrades2(std::vector<std::vector<std::vector<std::shared_ptr<StockParser>>>>&);
 };
 
 std::string getSymbol(const std::string& line);

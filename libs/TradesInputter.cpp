@@ -41,7 +41,43 @@ void TradesInputter::readTrades(map<string, shared_ptr<StockParser>>& stockMap){
     }
 }
 
+/*
+ * For each line of the file
+    * get symbol and check if symbol is in stockMap
+        * if not, add new Stock to stockMap
+    * addTrade to stock
+ */
+void TradesInputter::readTrades2(vector<vector<vector<shared_ptr<StockParser>>>>& stockVec){
+
+    string line;
+    string symbol;
+
+    if(inputFile.is_open()){
+        while(getline(inputFile, line)){
+            // Find index after first comma
+            int start = (int)line.find(",");
+
+            long long timeStamp = stoll(line.substr(0, start));
+
+            int i = line[start+1] - 'a';
+            int j = line[start+2] - 'a';
+            int k = line[start+3] - 'a';
+
+            if(stockVec[i][j][k]==NULL){
+                stockVec[i][j][k] = shared_ptr<StockParser> (new StockOpt());
+            }
+
+            stockVec[i][j][k]->addTrade(line.substr(start+5, line.size() - (start+5)), timeStamp);
+        }
+    }else{
+        cout<<"Failed to Open File"<<endl;
+        exit(-1);
+    }
+}
+
+
 string getSymbol(const string& line){
     int start = (int)line.find(",") + 1;
     return line.substr(start, SYMBOL_SIZE);
 }
+

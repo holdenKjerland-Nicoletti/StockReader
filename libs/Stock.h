@@ -9,6 +9,8 @@
 #include <iostream>
 #include <vector>
 
+#define MAXSYMBOL 3
+
 /*
 Implementing Interface for stock in order to follow Dependency Inversion Principle,
  so TradesInputter and StocksOuputter can depend on an abstraction when passing
@@ -17,6 +19,7 @@ Implementing Interface for stock in order to follow Dependency Inversion Princip
 class StockParser{
 public:
     virtual void addTrade(const std::string&) = 0;
+    virtual void addTrade(const std::string&, long long) = 0;
     virtual const std::string toString() = 0;
 };
 
@@ -35,8 +38,8 @@ public:
     std::string getSymbol();
     std::vector<long long> getValues();
     void addTrade(const std::string&);
+    virtual void addTrade(const std::string&, long long){};
     const std::string toString();
 };
-
 
 #endif //STOCK_H
